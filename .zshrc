@@ -108,3 +108,6 @@ alias cdcv="cd ~/code/valet"
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 test -d "${HOME}/.composer/vendor/bin" && export PATH="$PATH:${HOME}/.composer/vendor/bin"
 test -d "${HOME}/.config/composer/vendor/bin" && export PATH="$PATH:${HOME}/.config/composer/vendor/bin"
+
+GPG_TTY=$(tty)
+export GPG_TTY
