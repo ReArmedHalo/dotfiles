@@ -105,6 +105,21 @@ alias pam="php artisan make:"
 alias cdc="cd ~/code"
 alias cdcv="cd ~/code/valet"
 
+if [ -e "/Applications/Google Chrome.app" ]; then
+    function chrome {
+        if [ $# -eq 1 ]; then
+            echo "$PWD/$1"
+            if [ -d "$PWD/$1" ]; then
+                /usr/bin/open -a "/Applications/Google Chrome.app" "http://$1.test"
+            else
+                echo 'Sorry, that directory does not appear to exist.'
+            fi
+        else
+            /usr/bin/open -a "/Applications/Google Chrome.app" "http://$(basename $PWD).test"
+        fi
+    }
+fi
+
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 test -d "${HOME}/.composer/vendor/bin" && export PATH="$PATH:${HOME}/.composer/vendor/bin"
 test -d "${HOME}/.config/composer/vendor/bin" && export PATH="$PATH:${HOME}/.config/composer/vendor/bin"
