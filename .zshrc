@@ -121,35 +121,39 @@ if [ -e "/Applications/Google Chrome.app" ]; then
 fi
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-test -d "${HOME}/.composer/vendor/bin" && export PATH="$PATH:${HOME}/.composer/vendor/bin"
-test -d "${HOME}/.config/composer/vendor/bin" && export PATH="$PATH:${HOME}/.config/composer/vendor/bin"
 
-GPG_TTY=$(tty)
-export GPG_TTY
+test -d "/opt/homebrew/bin" && export PATH="/opt/homebrew/bin:$PATH"
+test -d "/opt/homebrew/bin" && eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# Composer plugin is detecting and updating the path
+#test -d "${HOME}/.composer/vendor/bin" && export PATH="$PATH:${HOME}/.composer/vendor/bin"
+#test -d "${HOME}/.config/composer/vendor/bin" && export PATH="$PATH:${HOME}/.config/composer/vendor/bin"
+
+ARTISAN_OPEN_ON_MAKE_EDITOR=code
 
 # Keypad
 # 0 . Enter
-bindkey -s "^[Op" "0"
-bindkey -s "^[On" "."
-bindkey -s "^[OM" "^M"
+#bindkey -s "^[Op" "0"
+#bindkey -s "^[On" "."
+#bindkey -s "^[OM" "^M"
 # 1 2 3
-bindkey -s "^[Oq" "1"
-bindkey -s "^[Or" "2"
-bindkey -s "^[Os" "3"
+#bindkey -s "^[Oq" "1"
+#bindkey -s "^[Or" "2"
+#bindkey -s "^[Os" "3"
 # 4 5 6
-bindkey -s "^[Ot" "4"
-bindkey -s "^[Ou" "5"
-bindkey -s "^[Ov" "6"
+#bindkey -s "^[Ot" "4"
+#bindkey -s "^[Ou" "5"
+#bindkey -s "^[Ov" "6"
 # 7 8 9
-bindkey -s "^[Ow" "7"
-bindkey -s "^[Ox" "8"
-bindkey -s "^[Oy" "9"
+#bindkey -s "^[Ow" "7"
+#bindkey -s "^[Ox" "8"
+#bindkey -s "^[Oy" "9"
 # + - * /
-bindkey -s "^[Ol" "+"
-bindkey -s "^[OS" "-"
-bindkey -s "^[OR" "*"
-bindkey -s "^[OQ" "/"
+#bindkey -s "^[Ol" "+"
+#bindkey -s "^[OS" "-"
+#bindkey -s "^[OR" "*"
+#bindkey -s "^[OQ" "/"
 
-bindkey "\033[1~" beginning-of-line
-bindkey "\033[4~" end-of-line
+#bindkey "\033[1~" beginning-of-line
+#bindkey "\033[4~" end-of-line
 
